@@ -3,14 +3,12 @@ import DashBoardHeader from './DashBoardHeader'
 import DashboardTransfers from './DashboardTransfers'
 import { usingAnotherBearerRequest } from '../lib/api'
 import { useKeyStore } from '../hooks/use-public-key'
-import { initialState, useAuthStore } from '../hooks/use-auth-store'
+import { useAuthStore } from '../hooks/use-auth-store'
 import { useBalanceStore } from '@/hooks/use-balance'
 import { useBorrowedTransactionsStore, useReceivedTransactionsStore, useSentTransactionsStore } from '../hooks/use-transactions-store'
 import { Icon } from '@iconify/react/dist/iconify.js'
-import { areObjectsEqual } from '@/lib/utils'
 
 const Dashboard = () => {
-  //let loading: boolean = true
   const [loading, setLoading] = useState(true)
   const secretToken = import.meta.env.VITE_PUBLIC_ENCRYPTED_PUBLIC_KEY as string
   const user = useAuthStore((state: any) => state.user)

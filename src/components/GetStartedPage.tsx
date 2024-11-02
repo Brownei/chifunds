@@ -3,9 +3,9 @@ import { LoginForm } from "./LoginForm"
 import { Link } from "react-router-dom"
 import { Icon } from "@iconify/react"
 import { buttonVariants } from "./ui/button"
-import { areObjectsEqual, cn } from "../lib/utils"
+import { cn } from "../lib/utils"
 import { useBorrowedTransactionsStore, useReceivedTransactionsStore, useSentTransactionsStore } from '@/hooks/use-transactions-store'
-import { initialState, useAuthStore } from '@/hooks/use-auth-store'
+import { useAuthStore } from '@/hooks/use-auth-store'
 import { useBalanceStore } from '@/hooks/use-balance'
 
 const GetStartedPage = () => {

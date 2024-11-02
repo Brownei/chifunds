@@ -1,11 +1,9 @@
-"use client"
 import * as React from "react"
 import * as z from "zod"
 import { cn } from "../lib/utils"
 import { Button } from "../components/ui/button"
 import { Icon } from '@iconify/react';
 import { useNavigate } from 'react-router-dom'
-import { useAuthStore } from "../hooks/use-auth-store"
 
 export const userAuthSchema = z.object({
   email: z.string().email(),
@@ -15,10 +13,8 @@ interface LoginFormProps extends React.HTMLAttributes<HTMLDivElement> { }
 
 export function LoginForm({ className, ...props }: LoginFormProps) {
   const navigate = useNavigate()
-  const setUser = useAuthStore((state: any) => state.setUser)
   const [isLoading, setIsLoading] = React.useState<boolean>(false)
   const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false)
-  //const [isGoogleLoading, setIsGoogleLoading] = React.useState<boolean>(false)
 
   React.useEffect(() => {
     const handleMessage = (event: any) => {
@@ -39,7 +35,16 @@ export function LoginForm({ className, ...props }: LoginFormProps) {
     };
   }, []);
 
+  React.useEffect(() => {
+    if (isLoading === true) {
+      setTimeout(() => {
+        setIsLoading(false)
+      }, 5000)
+    }
+  }, [isLoading])
+
   async function onSubmit() {
+    setIsLoading(true)
     window.open("http://localhost:8000/v1/auth/google", "Google Login", "width=500,height=600")
   }
 

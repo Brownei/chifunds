@@ -7,7 +7,7 @@ import { ProfileImage } from './ProfileImage'
 import { useBalanceStore } from '@/hooks/use-balance'
 
 const DashBoardHeader = () => {
-  const { balance, clearBalance } = useBalanceStore()
+  const { balance } = useBalanceStore()
   const user = useAuthStore((state: any) => state.user) as any
   const userBalance = balance !== 0 ? balance : user.balance
   const value = arrangeMoneyFigures(userBalance)

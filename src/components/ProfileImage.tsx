@@ -1,8 +1,6 @@
-import React from "react"
 import {
   Avatar,
   AvatarFallback,
-  AvatarImage,
 } from "./ui/avatar"
 
 export function ProfileImage({ image, firstLetter }: { image: string, firstLetter: string }) {
