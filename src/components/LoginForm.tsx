@@ -45,7 +45,7 @@ export function LoginForm({ className, ...props }: LoginFormProps) {
 
   async function onSubmit() {
     setIsLoading(true)
-    window.open("http://localhost:8000/v1/auth/google", "Google Login", "width=500,height=600")
+    window.open("https://chifunds-api.onrender.com/v1/auth/google", "Google Login", "width=500,height=600")
   }
 
   return (
