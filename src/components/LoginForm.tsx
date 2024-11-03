@@ -20,7 +20,7 @@ export function LoginForm({ className, ...props }: LoginFormProps) {
     const handleMessage = (event: any) => {
       console.log(event.data.token)
       // Ensure the message is from a trusted origin if hosted in production
-      if (event.origin === "http://localhost:8000" && event.data.token) {
+      if (event.origin === "https://chifunds-api.onrender.com/v1" && event.data.token) {
         sessionStorage.setItem("token", event.data.token);
         navigate("/dashboard")
         console.log("Token saved in sessionStorage");

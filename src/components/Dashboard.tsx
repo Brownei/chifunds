@@ -20,7 +20,7 @@ const Dashboard = () => {
   const { setReceivedTransaction, setInitial } = useReceivedTransactionsStore()
 
   React.useEffect(() => {
-    const es = new EventSource("http://localhost:8000/v1/balance");
+    const es = new EventSource("https://chifunds-api.onrender.com/v1/balance");
 
     es.onmessage = (event) => {
       console.log(`message: ${event.data}`)
